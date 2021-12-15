@@ -1,0 +1,90 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="agnoster"
+
+DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=30
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+
+eval `dircolors ~/.dir_colors/dircolors`
+
+#################
+# Env variables
+#################
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+## liquibase
+export PATH=$HOME/liquibase-4.3.1:$PATH
+
+## golang
+export PATH=$PATH:/usr/local/go/bin
+
+export GOPATH=$HOME/go
+
+export PATH=$PATH:$GOPATH/bin
+
+export PROTOBUF_PATH=$HOME/protoc-3.19.1-linux-x86_64
+export PATH=$PATH:$PROTOBUF_PATH/bin
+
+export MY_SCRIPTS=/somewhere
+export MIGRATE_DB_SCRIPT=$MY_SCRIPTS/somewhere
+
+
+#################
+# Aliases
+#################
+
+alias dev="cd $HOME/dev"
+alias self="cd $HOME/code"
+
+alias dcd="docker-compose down"
+alias dcu="docker-compose up"
+alias dcdu="dcd && dcu"
+
+alias ys="yarn start"
+alias yi="yarn install"
+alias yis="yi && ys"
+
+# scala
+alias hc="curl http://localhost:9000/healthcheck"
+alias sr="sbt run"
+
+alias g8scala="sbt new scala/scala-seed.g8"
+alias g8play="sbt new playframework/play-scala-seed.g8"
+alias g8ce3="sbt -Dsbt.version=1.5.5 new typelevel/ce3.g8"
+
+alias gg="git gui"
+
+# self
+alias blog="self && blog"
+alias bejs="bundle exec jekyll serve"
+alias savedrafts="bash $HOME/code/scripts/backupDrafts.sh"
+
+alias bookmarks="self && bookmarks"
+
+alias localkafka="dev && scripts && ./start-local-kafka.sh"
+alias migratedb=migrateDbScript
+
+migrateDbScript() {
+    if [ -n "$1" ]
+    then
+    	echo "migrating changes for database $1"
+        bash $MIGRATE_DB_SCRIPT $1
+    fi
+}
