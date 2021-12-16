@@ -67,6 +67,7 @@ alias hc="curl http://localhost:9000/healthcheck"
 alias sr="sbt run"
 
 alias g8scala="sbt new scala/scala-seed.g8"
+alias g8scala3="sbt new scala/scala3.g8"
 alias g8play="sbt new playframework/play-scala-seed.g8"
 alias g8ce3="sbt -Dsbt.version=1.5.5 new typelevel/ce3.g8"
 
