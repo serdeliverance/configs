@@ -43,7 +43,8 @@ export PROTOBUF_PATH=$HOME/protoc-3.19.1-linux-x86_64
 export PATH=$PATH:$PROTOBUF_PATH/bin
 
 export MY_SCRIPTS=/somewhere
-export MIGRATE_DB_SCRIPT=$MY_SCRIPTS/somewhere
+export MIGRATE_DB_SCRIPT=$MY_SCRIPTS/migrate_db.sh
+export FIRST_COMMIT_SCRIPT=$MY_SCRIPTS/first_commit.sh
 
 
 #################
@@ -80,11 +81,17 @@ alias bookmarks="self && bookmarks"
 
 alias localkafka="dev && scripts && ./start-local-kafka.sh"
 alias migratedb=migrateDbScript
+alias firstcommit=firstCommitScript
 
+## TODO maybe migrate those functions to another file
 migrateDbScript() {
     if [ -n "$1" ]
     then
     	echo "migrating changes for database $1"
         bash $MIGRATE_DB_SCRIPT $1
     fi
+}
+
+firstCommitScript() {
+    bash $FIRST_COMMIT_SCRIPT $1
 }
