@@ -83,6 +83,7 @@ alias bookmarks="self && bookmarks"
 alias localkafka="dev && scripts && ./start-local-kafka.sh"
 alias migratedb=migrateDbScript
 alias firstcommit=firstCommitScript
+alias startcomponent=startComponentScript
 
 ## TODO maybe migrate those functions to another file
 migrateDbScript() {
@@ -95,4 +96,11 @@ migrateDbScript() {
 
 firstCommitScript() {
     bash $FIRST_COMMIT_SCRIPT $1
+}
+
+startComponentScript() {
+    if [ -n "$1" ]
+    then
+        python3 $START_COMPONENT_SCRIPT $1
+    fi   
 }
