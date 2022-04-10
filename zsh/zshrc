@@ -72,8 +72,8 @@ alias localkafka="dev && scripts && ./start-local-kafka.sh"
 alias migratedb=migrateDbScript
 alias firstcommit=firstCommitScript
 alias startcomponent=startComponentScript
-alias gccurrent="bash $GIT_COMMIT_CURRENT"
-alias gcpcurrent="bash $GIT_COMMIT_PUSH_CURRENT"
+alias gcur="bash $GIT_COMMIT_CURRENT"
+alias gpcur="bash $GIT_COMMIT_PUSH_CURRENT"
 
 alias getPidOnPort=getPidOnPortScript
 
