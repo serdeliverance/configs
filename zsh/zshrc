@@ -33,6 +33,8 @@ export MY_SCRIPTS=../scripts
 export MIGRATE_DB_SCRIPT=$MY_SCRIPTS/migrate_db.sh
 export FIRST_COMMIT_SCRIPT=$MY_SCRIPTS/first_commit.sh
 export GET_PID_ON_PORT_SCRIPT=$MY_SCRIPTS/get_pid_on_port.sh
+export GIT_COMMIT_CURRENT=$MY_SCRIPTS/git_commit_current.sh
+export GIT_COMMIT_PUSH_CURRENT=$MY_SCRIPTS/git_commit_push_current.sh
 
 
 #################
@@ -70,6 +72,8 @@ alias localkafka="dev && scripts && ./start-local-kafka.sh"
 alias migratedb=migrateDbScript
 alias firstcommit=firstCommitScript
 alias startcomponent=startComponentScript
+alias gccurrent="bash $GIT_COMMIT_CURRENT"
+alias gcpcurrent="bash $GIT_COMMIT_PUSH_CURRENT"
 
 alias getPidOnPort=getPidOnPortScript
 
