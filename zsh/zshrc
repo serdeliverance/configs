@@ -41,6 +41,7 @@ export GET_PID_ON_PORT_SCRIPT=$MY_SCRIPTS/get_pid_on_port.sh
 
 alias dev="cd $HOME/dev"
 alias self="cd $HOME/code"
+alias ggpushav='git add . && git commit -m "av" && git push origin "$(git_current_branch)"'
 
 alias dcd="docker-compose down"
 alias dcu="docker-compose up"
